@@ -1,1 +1,79 @@
+package Main;
 
+public class Task9 {
+    public static void main(String[] args) {
+        int [] num = {23,3,6,8,3,2,7,9,9, 12, 15 ,15, 1,15, 10, 14, 15, 16, 17, 7, 9, 9, 3, 10, 17, 8, 2, 12 , 14, 16, 1,3,6,8,3,2,7,9,9, 12, 15 ,15, 1,15, 10, 14, 15, 16, 17, 7, 9, 9, 3, 10, 17, 8, 2, 12 , 14, 16, 1,3,6,8,3,2,7,100,9,9, 12, 15 ,15, 1,15, 10, 14, 15, 16, 17, 7, 9, 9, 3, 10, 17, 8, 2, 12 , 14, 16, 1,3,6,8,3,2,7,9,9, 12, 15 ,15, 1,15, 10, 14, 15, 16, 17, 7, 9, 9, 3, 10, 17, 8, 2, 12 , 14, 16, 1,23};
+        for (int i =0; i<num.length;i++){
+            boolean result = true;
+            for (int q=num.length-1;q>=0;q--){
+                if (num[i]==num[q] && i!=q){
+                    result = false;
+                    break;
+                }
+            }
+            if (result){
+                System.out.println(num[i]);
+            }
+        }
+
+        long sec1 = System.nanoTime();
+        findUnique2(num);
+        long sec2 = System.nanoTime();
+
+        System.out.println(sec2-sec1);
+        System.out.println("=====");
+
+        sec1 = System.nanoTime();
+        findUnique(num);
+        sec2 = System.nanoTime();
+
+        System.out.println(sec2-sec1);
+    }
+
+    public static void findUnique(int[] nums){
+        String str = "";
+
+        for(int i=0; i<nums.length; i++) {
+            boolean result = true;
+            if(!str.contains(""+nums[i])) {
+                str += nums[i];
+                for(int q=i+1; q<nums.length; q++) {
+                    if(nums[i] == nums[q]){
+                        result = false;
+                        break;
+                    }
+                }
+            }else {
+                result = false;
+            }
+
+            if(result) {
+                System.out.println(nums[i]);
+            }
+        }
+    }
+
+    public static void findUnique2(int[] nums) {
+        for (int i=0; i<nums.length; i++){
+            boolean result = true;
+            for(int q=0; q<nums.length; q++) {
+                if(nums[i] == nums[q] && i!=q){
+                    result = false;
+                    break;
+                }
+            }
+            if(result) {
+                System.out.println(nums[i]);
+            }
+        }
+    }
+}
+//Write a method that will accept one array as parameter and will remove duplicates
+//	 * and return will have unique numbers inside
+//	 *
+//	 * for example:
+//	 * {3,6,8,3,2,7,9,9} -> return {3,6,8,2,7,9}
+//	 * {-1,5,8,-1,-55,55,0} -> return {-1,5,8,-55,55,0}
+//	 *
+//	 * @param array of numbers
+//	 * @return array of unique numbers
