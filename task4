@@ -1,0 +1,25 @@
+package Main;
+
+public class Task4 {
+    public static void main(String[] args) {
+        int[] num = {10, 3, 9, 55, 73, 99, 2, 110};
+        boolean result = false;
+        for (int i = 0; i < num.length; i++) {
+
+            for (int q = i + 1; q < num.length; q++) {
+
+                if (num[i] + num[q] == 100) {
+                    result = true;
+                }
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+//Write a method that takes an array of ints and returns a boolean.
+//	 * Return true if that array contains two numbers anywhere in the array
+//	 * whose sum is 100
+//	 *
+//	 * @param nums
+//	 * @return boolean
