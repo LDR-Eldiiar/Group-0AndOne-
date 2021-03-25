@@ -1,0 +1,14 @@
+package Main;
+
+public class Task1 {
+    public static void main(String[] args) {
+        int[] num = {3, 9, 55, 73, 99, 2, 10};
+        int maxNum = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (maxNum < num[i]) {
+                maxNum = num[i];
+            }
+        }
+        System.out.println(maxNum);
+    }
+}
